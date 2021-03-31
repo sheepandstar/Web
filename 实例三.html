@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>实例三</title>
+        <style>
+            *{
+                box-sizing: border-box;
+            }
+            body{
+                background-color: rgb(241, 241, 241);
+            }
+
+            .head h1{
+                text-align: center;
+            }
+
+            .main{
+                background-color: gray;
+                border:1px solid gray;
+                border-radius: 10px;
+                padding:20px;
+                margin:20px;
+                height: auto;
+            }
+
+            form::after{
+                display: table;
+                clear: both;
+                content: "";
+            }
+
+            input,select,textarea{
+                float:right;
+                width:75%;
+                border: solid 1px gray;
+                border-radius: 5px;
+                padding:12px;
+            }
+
+            label{
+                display: inline-block;
+                width: 25%;
+                padding:10px 0px;
+               
+                      
+            }
+
+            textarea{
+                resize: vertical;
+                height: 200px;;
+            }
+
+            button{
+                display: block;
+                background-color: rgba(0,0,0,1);
+                width: 150px;
+                height: 40px;
+                margin:auto;
+                color: white;
+            }
+
+            button:hover{
+                background-color: rgba(120,120,120,0.2);
+                color: black;
+            }
+            @media screen and (max-width: 800px) {
+                label,input,select,textarea{
+                    display: block;
+                    width: 100%;
+                }
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="head">
+            <h1>响应式表单</h1>
+        </div>
+        <div class="main">
+            <form>
+                <div>
+                    <label for="fn">First Name</label>
+                    <input type="text" id="fn" placeholder="Your name..">
+                </div>
+                <br><br>
+                <div>
+                    <label for="ln">Last Name</label>
+                    <input type="text" id="ln" placeholder="Your last name..">
+                </div>
+                <br><br>
+                <div>
+                    <label for="c">Country</label>
+                    <select id="c">
+                        <option>Australia</option>
+                        <option>Canada</option>
+                        <option>China</option>
+                    </select>
+                </div>
+                <br><br>
+                <div>
+                    <label for="sb">Subject</label>
+                    <textarea  id="sb" placeholder="Write something.."></textarea>
+                </div>
+                
+            </form>
+            <br><br>
+            <div>
+                <button type="submit">Submit</button>
+            </div>
+
+        </div>
+    </body>
+</html>
