@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>实例一</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                margin: 0;
+            }
+
+            .daohang ul{
+                background-color: gray;
+                margin: 0px;
+                padding: 0px;
+                list-style-type: none;
+                font-size: 0;
+                
+            }
+            .daohang li{
+                display:inline;
+                margin: 0px 0px;
+            }
+
+            .daohang a{
+                display:inline-block;
+                color:white;
+                padding: 23px 25px;
+                text-decoration: none;
+                margin:0px 0px;
+                font-size: 16px;
+               /* margin-right: -5px;*/
+            }
+
+            .daohang #home{
+                background-color: green;
+            }
+            .daohang a:hover{
+                background-color: rgb(25, 24, 26);
+            }
+            .cebian{
+                width: 25%;
+                padding:15px;
+                float:left;
+               
+                
+            }
+
+            .cebian ul{ 
+                list-style-type: none;
+                margin: 0;
+                padding:0;
+            }
+            .cebian a{
+                display: block;
+                padding:8px;
+                margin-bottom: 4px;
+                text-decoration: none;
+                background-color: rgb(221, 232, 247);
+                
+            }
+
+            .cebian a:hover{
+                background-color: rgb(64, 118, 235);
+                color:white;
+            }
+            #main_c{
+                float:left;
+                width: 75%;
+                padding:15px;
+               
+            }
+
+            #main_city h1{
+                color: white;
+                padding:15px;
+                margin: 0px 0px;
+                background-color: rgb(57, 115, 241);
+                text-align: center;
+            }
+
+            .foot{  
+                background-color: gray;
+                padding:23px;
+                color:white;
+            }
+
+
+            .main::after{
+                content: "";
+                clear: both;
+                display: table;
+               
+            }
+           
+
+        </style>
+    </head>
+    <body>
+        <div class="daohang">
+            <ul>
+                <li><a href="http://www.baidu.com" id="home">Home</a></li>
+                <li><a href="http://www.baidu.com" id="news">News</a></li>
+                <li><a href="http://www.baidu.com" id="contact">Contact</a></li>
+                <li><a href="http://www.baidu.com" id="about">About</a></li>
+            </ul>     
+        </div>
+
+        <div class="main">
+            <div class="cebian">
+                <ul>
+                    <li><a href="http://www.baidu.com" name="flight">The Flight</a></li>
+                    <li><a href="http://www.baidu.com" style="background-color:  rgb(64, 118, 235); color: white;">The City</a></li>
+                    <li><a href="http://www.baidu.com" >The Island</a></li>
+                    <li><a href="http://www.baidu.com" >The Food</a></li>
+                    <li><a href="http://www.baidu.com" >The People</a></li>
+                    <li><a href="http://www.baidu.com" >The History</a></li>
+                    <li><a href="http://www.baidu.com" >The Oceans</a></li>
+                </ul>       
+            </div>
+
+            <div id="main_c">
+                <div id="main_city"><h1>The City</h1></div>
+                    <div id="text">
+                        <h1>Shanghai</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam provident laborum quaerat, natus culpa atque et quam at itaque, quis magni velit deleniti? Fugit dolorum, adipisci veritatis illo et cum.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores doloremque ullam soluta numquam? Provident asperiores delectus laudantium debitis impedit. Ab unde est aliquam ad incidunt tempore corporis nam numquam expedita.</p>
+                    </div>
+            </div>
+        </div>
+
+        <div class="foot">
+            <p>Footer Text</p>
+        </div>
+    </body>
+</html>
