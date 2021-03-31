@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8">
+    <title>实例二</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            margin: 0;
+            background-color: rgba(221, 221, 215, 0.973);
+            padding-right: 15px;
+        }
+        .head{
+            margin: 15px 0 15px 15px;
+            background-color: white;
+        }
+        .head .title{
+            text-align: center;
+            padding:20px;
+        }
+        .head .nav ul{
+            background-color: rgb(63, 62, 62);
+            padding: 0;
+            margin: 0;
+            list-style-type:none;
+            overflow: hidden;
+            
+        }
+        .nav li a{
+            display:block;
+            padding: 15px;
+            float: left;
+            text-decoration: none;
+            color:white;
+        }
+
+        .nav li a:hover{
+            background-color: rgba(255,255,255,0.8);
+            color: black;
+        }
+
+        .main .part1 , .main .part2 , .main .part3,.main .part4,.main .part5{
+            margin: 0 0 15px 15px;
+            background-color: white;
+            padding:15px;
+           
+        }
+
+        .part4 img{
+            margin-top: -10px;
+
+        }
+
+        .foot{
+            background-color: rgba(110,110,110,0.2);
+            text-align: center;
+            margin: 0 0 15px 15px;
+            padding: 15px;
+        }
+
+        #left{
+            width: 75%;
+            float: left;
+        }
+
+        #right{
+            width: 25%;
+            float: left;
+        }
+
+        .main{
+            display: table;
+            content: "";
+            clear: both;
+        }
+
+        @media screen and (max-width:800px) {
+            #left,#right{
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width:500px) {
+            .nav li a{
+                width: 100%;
+            }
+
+          
+        }
+
+    </style>
+</html>
+<body>
+    <div class="head">
+        <div class="title">
+            <h1 style="font-size:45px;">My Website</h1>
+            <p>Resize the browser window to see the effect.</p>
+        </div>
+        <div class="nav">
+            <ul>
+                <li><a href="#1">Link1</a></li>
+                <li><a href="#1">Link2</a></li>
+                <li><a href="#1">Link3</a></li>
+                <li class="r"><a href="#1" style="float:right">Link4</a></li>
+            </ul>
+        </div>
+    </div>
+
+   <div class="main">
+    <div id="left">
+        <div class="part1">
+            <h1>TITLE HEADING</h1>
+            <p>Title description,Dec 7,2021</p>
+            <div>
+                <img src="三岔.png" style=" width: 100%; height: 200px;">
+            </div>
+            <p>Some text..</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam inventore tenetur beatae reiciendis suscipit officiis quasi laborum illo qui ipsum eius consequatur velit nesciunt eligendi excepturi, sit soluta sequi repellendus.</p>
+        </div>
+
+        <div class="part2">
+            <h1>TITLE HEAADING</h1>
+            <p>Title description,Dec 7,2021</p>
+            <div>
+                <img src="三岔.png" style=" width: 100%; height: 200px;">
+            </div>
+            <p>Some text..</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam inventore tenetur beatae reiciendis suscipit officiis quasi laborum illo qui ipsum eius consequatur velit nesciunt eligendi excepturi, sit soluta sequi repellendus.</p>
+        </div>
+    </div>
+
+    <div id="right">
+        <div class="part3">
+            <h1>About Me</h1>
+            <div>
+                <img src="三岔.png" style=" width: 100%; ">
+            </div>
+            <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+        </div>
+
+        <div class="part4">
+            <h2>Popular Post</h2>
+            <div>
+                <img src="三岔.png" style="width: 100%; height: 100px;">
+                <img src="三岔.png" style="width: 100%; height: 100px;">
+                <img src="三岔.png" style="width: 100%; height: 100px;">
+            </div>
+
+        </div>
+
+        <div class="part5">
+            <h2>Follow Me</h2>
+            <p>Some text..</p>
+        </div>
+    </div>
+
+   </div>
+
+   <div class="foot">
+        <div>
+            <h1>Footer</h1>
+        </div>
+   </div>
+
+</body>
