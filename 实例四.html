@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>实例四-弹性布局</title>
+        <style>
+            *{
+                box-sizing: border-box;
+            }
+            body{
+                margin: 0;
+            }
+            /*head部分*/
+            .head{
+                text-align: center;
+                width: 100%;
+            }
+
+            .head .yellow{
+                padding:15px;
+                background-color: yellow;
+            }
+
+            .head .green{
+                padding: 35px;
+                background-color:teal;
+                color: white;
+            }
+
+            /*导航部分*/
+            .nav ul{
+                margin: 0;
+                padding: 0;
+                display: flex;/*由于只有flex容器的直接子元素会有flex属性，因此li元素具有，但是a元素并不具有*/
+                background-color: black;
+                width: 100%;
+                list-style-type: none;
+            }
+
+            .nav li a{
+                display: inline-block;
+                text-decoration: none;
+                padding: 15px;
+                color: white;
+                text-align: center;
+
+            }
+
+            .nav li a:hover{
+                background-color: rgba(255, 254, 254, 0.637);
+                color:black;
+            }
+
+            /*主体部分*/
+            .main{
+                display: flex;
+                flex-direction: row;
+            }
+            .left{
+                padding: 20px;
+                background-color: rgb(221, 221, 221);
+                /*width: 30%;*/
+                flex-basis:30%;
+            }
+
+            img{
+                display: block;
+                max-width: 100%;
+                margin: auto;
+            }
+
+            [alt=pic]{
+                height: 100px;
+                width: 300px;
+                margin-bottom: 15px;
+            }
+            
+            .right{
+                padding: 20px;
+                /*width: 70%;*/
+                flex-basis:70%;
+            }
+
+            .main .part2{
+                margin-top:70px;
+            }
+
+            /*页脚*/
+            .foot{
+                text-align: center;
+                background-color: rgb(207, 206, 206);
+                padding: 10px;
+            }
+
+            .foot p{
+                font-weight: bold;
+                font-size: 25px;
+            }
+
+            /*响应式布局*/
+            @media screen and (max-width:600px) {
+                .main,.nav ul{
+                   flex-direction: column;
+                }
+              /*  .left,.right{
+                    width: 100%;
+                }*/
+                .nav li a{
+                    width: 100%;
+                    text-align: center;
+                }
+                
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="head">
+            <div class="yellow"><p>请调整浏览器窗口来查看响应效果</p></div>
+            <div class="green">
+                <h1>我的网站</h1>
+                <p>拥有 <b>弹性</b> 布局</b>。</p>
+            </div>
+
+        </div>
+
+        <div class="nav">
+            <ul>
+                <li><a href="#a">Link</a></li>
+                <li><a href="#a">Link</a></li>
+                <li><a href="#a">Link</a></li>
+                <li><a href="#a">Link</a></li>
+            </ul>
+        </div>
+
+        <div class="main">
+            <div class="left">
+                <h2>关于我</h2>
+                <h4>我的照片：</h4>
+                <img src="三岔.png" alt="myphoto">
+                <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+                <h2>More Text</h2>
+                <p>Lorem ipsum dolor sit ame.</p>
+                <img src="三岔.png" alt="pic">
+                <img src="三岔.png" alt="pic">
+                <img src="三岔.png" alt="pic" style="margin-bottom: 0;">
+
+            </div>
+
+            <div class="right">
+                <div class="part1">
+                    <h2>标题</h2>
+                    <h4>标题描述，2021 年 1 月 1 日</h4>
+                    <img src="三岔.png" alt="rp">
+                    <p>一些文本..</p>
+                    <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+                </div>
+
+                <div class="part2">
+                    <h2>标题</h2>
+                    <h4>标题描述，2021 年 1 月 2 日</h4>
+                    <img src="三岔.png" alt="rp">
+                    <p>一些文本..</p>
+                    <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+        <div class="foot">
+            <p>页脚</p>
+        </div>
+        
+
+
+    </body>
+</html>
