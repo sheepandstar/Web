@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>动态生成学生成绩表</title>
+        <meta charset="utf-8">
+        <style>
+            table{
+                border-collapse: collapse;
+                margin: auto;
+                margin-top: 100px;
+            }
+            th{
+                border: 2px solid black;  
+                height: 50px;    
+                padding:0px 50px;
+            }
+            thead{
+                background-color: rgb(180, 175, 175);
+            }
+
+
+            .tbody_td{
+                border: 2px solid black;  
+                height: 50px;    
+                padding:0px 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>科目</th>
+                    <th>成绩</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+                
+            <tbody>
+    
+            </tbody>
+        </table>
+
+        <script>
+            var data =[//利用数组存放表格数据
+                {
+                    name:'杨馨',
+                    course:'JavaScript',
+                    grade:'100'
+                },
+                {
+                    name:'张尧坤',
+                    course:'JavaScript',
+                    grade:100
+                },
+                {
+                    name:'小明',
+                    course:'JavaScript',
+                    grade:90
+                },
+                {
+                    name:'小王',
+                    course:'JavaScript',
+                    grade:80
+                },
+                {
+                    name:'小李',
+                    course:'JavaScript',
+                    grade:87
+                }
+            ]
+
+        //2.创建表格tbody,数组中有多少个对象创建多少行数据
+        for(var i =0;i<data.length;i++)
+        {
+            //获取tbody
+            var tbody = document.querySelector('tbody');
+            //创建tr
+            var tr = document.createElement('tr');
+            //将tr插入tbody
+            tbody.appendChild(tr);
+            //按对象中属性个数创建td
+            for(var k in data[i])
+            {
+                var td = document.createElement('td');
+                //将td插入tr中
+                tr.appendChild(td);
+                //给td添加样式
+                td.className='tbody_td';
+                //插入数据
+                td.innerHTML=data[i][k];
+            }
+
+            //添加操作表格,在tr里面插入op_td
+            var op_td = document.createElement('td');
+            tr.appendChild(op_td);
+            //添加删除链接
+            op_td.innerHTML='<a href="javascript:;">删除</a>';
+            //给op_td添加样式
+            op_td.className='tbody_td';
+
+        }
+
+        //实现删除功能
+        var tbody=document.querySelector('tbody');
+            //给每个删除链接添加点击事件
+        var a = document.querySelectorAll('a');
+        for(var j=0;j<a.length;j++)
+        {
+            a[j].onclick = function(){
+                //console.log(j);打印出来是j=4，原因：JS的函数是调用时触发。在每次的循环中onclick的函数体并没有执行。当点击按钮时，触发了onclick函数，这时再执行函数体中的内容。但是，此时循环已经结束。j的值已经在最后依次循环中变为了3+1=4。
+                //因此不能在函数体中使用a[j](j=4,a[j] undefinde)
+                var th_de = (this.parentNode).parentNode;
+                tbody.removeChild(th_de);
+            }
+        }
+
+
+        </script>
+    </body>
+</html>
