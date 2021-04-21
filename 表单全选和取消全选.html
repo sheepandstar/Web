@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>全选</title>
+	<meta charset="utf-8">
+
+	<style>
+		table{
+			margin: auto;
+			margin-top: 50px;
+			border-collapse:collapse;
+		}
+
+		td,thead,th{
+			border: 2px solid gray;
+			padding:10px;
+
+		}
+
+		thead{
+			background-color:rgb(100,100,255);
+			
+		}
+		
+	</style>
+
+
+</head>
+
+
+<body>
+<table>
+	<thead>
+		<tr><th><input type="checkbox" id="all" onclick="AllCh(this)"></th> <th>商品</th> <th>价钱</th>   </tr>
+	</thead>
+
+	<tbody id="single">
+		<tr><td><input type="checkbox"></td>  <td>iPhone8</td>  <td>8000</td>   </tr>
+		<tr><td><input type="checkbox"></td>  <td>iPad Pro</td>  <td>5000</td>   </tr>
+		<tr><td><input type="checkbox"></td>  <td>iPad Air</td>   <td>2000</td>   </tr>
+		<tr><td><input type="checkbox"></td>  <td>Apple Watch</td>   <td>2000</td>   </tr>	
+	</tbody>
+
+
+</table>
+
+<script>
+	//全选按钮控制：全选或取消全选
+	function AllCh (id)
+	{	
+		//获取所有复选框
+		var ch = document.getElementsByTagName("input");
+		for(var i=0;i<ch.length;i++)
+		{
+			ch[i].checked=id.checked;
+		}
+		
+	}	
+
+	//获取全选按钮
+	var allch = document.getElementById("all");
+	
+	//获取单选按钮
+	var singlech = document.getElementById("single").getElementsByTagName("input");
+	
+	for(var j=0;j<singlech.length;j++)
+	{
+		//给每个单选按钮绑定点击事件
+		singlech[j].onclick = function () {
+			//控制全选开关
+			var flag = true;
+			//console.log(this.checked);
+			for(var k=0;k<singlech.length;k++)
+			{
+				//判断所有单选按钮是否都被选中，如果有没被选中的则全选开关关闭
+				if(!singlech[k].checked)
+					flag = false;
+				
+			}
+			allch.checked = flag;
+		}
+	}
+
+
+</script>
+
+</body>
+
+</html>
