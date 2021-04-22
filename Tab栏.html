@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>tab栏制作</title>
+        <meta charset="utf-8">
+        <style>
+            ul{
+                padding: 10px 10px 10px 0px;
+                background-color: rgb(255, 223, 228);
+                border:2px solid rgb(199, 199, 199);
+                text-decoration: none;
+            }
+            ul li{
+                display: inline;
+                padding: 10px;
+                margin: 0px;
+            }
+
+            .active{
+                background-color: red;
+                color: white;
+            }
+
+            #b,#c,#d,#e{
+                display: none;
+            }
+
+        </style>
+
+
+
+    </head>
+
+
+    <body>
+        <div id="head">
+            <ul>
+                <li class="active">商品介绍</li>
+                <li>规格与包装</li>
+                <li>售后保障</li>
+                <li>商品评价（50000）</li>
+                <li>手机社区</li>
+            </ul>
+        </div>
+
+        <div id="body">
+            <div id="a">
+                <p>商品介绍模块内容</p>
+                <p>商品介绍模块内容</p>
+                <p>商品介绍模块内容</p>
+                <p>商品介绍模块内容</p>
+                <p>商品介绍模块内容</p>
+
+            </div>
+
+            <div id="b">
+                <p>商品包装1</p>
+                <p>商品包装2</p>
+                <p>商品包装3</p>
+                <p>商品包装4</p>
+
+            </div>
+
+            <div id="c">
+                <p>售后保障1</p>
+                <p>售后保障2</p>
+                <p>售后保障3</p>
+                <p>售后保障4</p>
+            </div>
+
+
+            <div id="d">
+                <p>商品评价1</p>
+                <p>商品评价2</p>
+                <p>商品评价3</p>
+                <p>商品评价4</p>
+            </div>
+
+            <div id="e">
+                <p>手机社区1</p>
+                <p>手机社区2</p>
+                <p>手机社区3</p>
+                <p>手机社区4</p>
+            </div>
+
+        </div>
+
+
+        <script>
+            //获取tab栏列表
+            var head_li = document.getElementById("head").getElementsByTagName("ul")[0].getElementsByTagName("li");
+        
+            //数组存放下面内容的id名，方便后续与Tab栏内容关联
+            var arr = ['a','b','c','d','e'];
+
+            for(var i = 0;i<head_li.length;i++)
+            {
+                //给每个li设置自定义属性index，便于与arr关联
+                head_li[i].setAttribute("index",i);
+                //绑定点击事件
+                head_li[i].onclick = function()
+                {
+                    //排他思想。先将所有li的类名设置为空，再单独设置被点击的类名，以改变被点击tab的样式
+                    for(var j=0;j<head_li.length;j++)
+                    {
+                        head_li[j].className="";
+                    }
+                    this.className = "active";
+
+
+                    //排他思想，先将所有栏目内容的display属性设置为none不可见，再单独设置点击栏目对应的内容为可见
+                    for(var k = 0;k<head_li.length;k++)
+                    {
+                        var index = head_li[k].getAttribute('index');
+                        var aa=document.getElementById(arr[index]);
+                        aa.style.display = "none";
+                    }
+                    var index = this.getAttribute('index');
+                    var aa=document.getElementById(arr[index]);
+                    aa.style.display = "block";
+                }
+            }
+        
+        
+        </script>
+
+    </body>
+</html>
