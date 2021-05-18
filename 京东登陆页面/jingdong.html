@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>仿京东登陆页面</title>
+  <style>
+    .head h1{
+      text-align: center;
+      margin: 100px;
+    }
+
+    .zh , .mm{
+      width: 390px;
+      border-bottom: gray 1px solid ;
+      margin: auto;
+    }
+
+    .zh>input , .mm>input{
+      border: none;
+      font-size: 20px;
+      outline: none;
+      background-color: white;
+    }
+
+    .mm img{
+      position: absolute;
+      width: 40px;
+      height: 25px;
+      top:-5px;
+     
+      opacity: 0.5;
+      
+    }
+    .mm{
+      position: relative;
+    }
+    .mm p{
+      display: inline-block;
+      margin:0px 0px 0px 50px;
+      padding-left: 15px;
+      color: gray;
+      border-left: 1px solid gray;
+    }
+
+    .submit input{
+      display: block;
+      margin: auto;
+      width: 200px;
+      height: 40px;
+      border-radius: 25px;
+      border:none;
+      color: white;
+      background-color: rgba(211, 55, 55, 0.651);
+      outline: none;
+    }
+
+  </style>
+
+
+
+
+</head>
+<body>
+
+<div class="head">
+   <h1>京东登陆</h1>
+</div>
+
+  <div>
+    <form>
+      <div class="zh">
+        <label for="a_number">  </label>
+        <input type="text" name="a_number" placeholder="用户名/邮箱/手机号">
+        
+      </div>
+      <br><br>
+      <div class="mm">
+         <label for="mm">  </label>
+         <input type="password" name="mm" placeholder="请输入密码" id="mm_in">
+         <img src="eye_close.png" id="eye">
+         <p>忘记密码</p>
+      </div>
+      <br><br><br>
+      <div class="submit">
+        <input type="button" value="登录">
+      </div>
+    </form>
+
+  </div>
+
+  <script>
+    var mm_in = document.getElementById('mm_in');
+    var img = document.getElementById('eye');
+    var flag = 0;
+    console.log(mm_in);
+    img.onclick=function(){
+      console.log("ok");
+      if(flag==0)
+      {
+        mm_in.type="text";
+        img.src="eye_open.png";
+        flag=1;
+        
+      }
+      else{
+        mm_in.type="password";
+        img.src="eye_close.png";
+        flag=0;
+      }
+      
+
+    }
+
+
+  </script>
+
+
+
+</body>
+<script>
+ 
+</script>
+
+
+
+
+</html>
