@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <title>期中</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            margin: 0;
+            background-color: rgba(221, 221, 215, 0.973);
+            padding-right: 15px;
+        }
+        .head{
+            margin: 15px 0 15px 15px;
+            background-color: white;
+        }
+        .head .title{
+            text-align: center;
+            padding:20px;
+        }
+        .head .nav ul{
+            background-color: rgb(63, 62, 62);
+            padding: 0;
+            margin: 0;
+            list-style-type:none;
+            overflow: hidden;
+            
+        }
+        .nav li a{
+            display:block;
+            padding: 15px;
+            float: left;
+            text-decoration: none;
+            color:white;
+        }
+
+        .nav li a:hover,.active{ 
+            background-color: rgba(255,255,255,0.8);
+        }
+
+        .main .part1 , .main .part2 , .main .part3,.main .part4,.main .part5{
+            margin: 0 0 15px 15px;
+            background-color: white;
+            padding:15px;
+           
+        }
+
+        .part4 img{
+            margin-top: -10px;
+
+        }
+
+        .foot{
+            background-color: rgba(110,110,110,0.2);
+            margin: 0 0 15px 15px;
+            padding: 15px;
+        }
+        .foot .leftli{
+            float: left;
+        }
+
+        .foot .rightli{
+            float: right;
+        }
+
+        #left{
+            width: 75%;
+            float: left;
+        }
+
+        #right{
+            width: 25%;
+            float: left;
+        }
+
+        .main,.foot .footul{
+            display: table;
+            content: "";
+            clear: both;
+        }
+
+        @media screen and (max-width:800px) {
+            #left,#right{
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width:500px) {
+            .nav li a{
+                width: 100%;
+            }   
+        }
+
+        #mouse{
+            width: 30px;
+            height:25px;
+            position:absolute;
+        }
+
+        p{
+            text-indent: 2em;
+        }
+
+        .leftbasicmessage{
+            width: 50%;
+            float: left;
+        }
+
+        .part2::after,.part3::after{
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        .leftbasicmessage{
+            width: 50%;
+            float:left;
+        }
+        .rightbasicmessage{
+            width: 50%;
+            float:right;
+        }
+
+        .part2 ul{
+            margin: 0px;
+            padding: 0px;
+            list-style-type: none;
+        }
+
+        .part2 span{
+            display: inline-block;
+            width: 100px;
+            color: gray;
+        }
+
+        .part2 li{
+            margin-top: 10px;
+        }
+
+        .part3 .b .b1_pic,.part3 .c .c1_pic,.part3 .g .g_pic{
+            width: 20%;
+            float: right;
+        }
+        .part3 .b .b1_pic img,.part3 .c .c1_pic img,.part3 .g img{
+            width: 100%;
+            padding: 20px;
+        }
+
+        .part3 .b .b2{
+            float: left;
+            width: 100%;
+        }
+
+        .part3 .b,.part3 .c,.part3 .d,.part3 .e,.part3 .f,.part3 .g{
+            display: none;
+        }
+
+        .part3 .d .movie_left,.part3 .d .tv_left,.part3 .d .mag_left{
+            width: 25%;
+            float: left;
+        }
+
+        .part3 .d .movie_left .pic_left,.part3 .d .tv_left .pic_left,.part3 .d .mag_left .pic_left{
+            width:100px;
+            display: inline-block;
+        }
+
+        .part3 .d .movie_left img,.part3 .d .tv_left img,.part3 .d .mag_left img{
+            width: 100%;
+            display: inline-block;
+        }
+        .part3 .d .movie_left .movie_des p,.part3 .d .tv_left .tv_des p,.part3 .d .mag_left .mag_des p
+        {
+            text-indent: 0em;/*取消首行缩进2字符*/
+        }
+        .part3 .d .movie_left .movie_des span,.part3 .d .tv_left .tv_des span,.part3 .d .mag_left .mag_des span{
+            color: grey;/*字体颜色*/
+        }
+
+        .part3  table{
+            border-collapse: collapse;/*表格边框合并*/
+            margin: auto;/*水平居中对齐*/
+            text-align: center;/*表格内文字水平居中对齐*/
+        }
+
+        .part3  td,.part3  th{
+            border:1px solid gray;/*表格边框*/
+            padding: 20px 40px;/*表格内间距*/
+        }
+        .part3  th{
+            background-color: rgb(161, 161, 161);/*表头背景样式*/
+        }
+
+        .part3 .movie,.part3 .tv,.part3 .works,.part3 .theatre,.part3 .drama,.part3 .variety,.part3 .magazine{
+            overflow: auto;/*防止溢出到容器外*/
+        }
+
+        .part3 .f li{
+            padding: 10px;
+        }
+
+        .main #left h1{
+            border-left: rgb(86, 183, 221) solid 4px;
+            padding-left: 10px;
+        }
+
+    </style>
+</head>
+    
+<body>
+    <div class="head">
+        <div class="title">
+            <h1 style="font-size:45px;">本尼迪克特·康伯巴奇的个人网站</h1>
+        </div>
+        <div class="nav">
+            <ul>
+                <li><a href="#1" class="active" style="color: black;">早年经历</a></li>
+                <li><a href="#1">演艺经历</a></li>
+                <li><a href="#1">个人生活</a></li>
+                <li><a href="#1">主要作品</a></li>
+                <li><a href="#1">社会活动</a></li>
+                <li><a href="#1">获奖记录</a></li>
+                <li><a href="#1">人物评价</a></li>
+            </ul>
+        </div>
+    </div>
+
+   <div class="main">
+    <div id="left">
+        <div class="part1">
+            <h1>个人简介</h1>
+            <div style="border-left:2px solid rgb(86, 183, 221) ; padding-left: 5px;">1976年7月19日 <span style="padding-left: 7px; border-left:1px solid rgb(167, 164, 164) ;">英国伦敦</span></div>
+            <p>本尼迪克特·康伯巴奇（Benedict Cumberbatch），1976年7月19日出生于英国伦敦，英国演员、制片人。</p>
+            <p>2000年，康伯巴奇出演电视剧《心跳》，开始演艺生涯。2010年，开始主演电视系列剧《神探夏洛克》，凭借剧集，获得艾美奖、金卫星奖等多项最佳男主角奖，亦得到金球奖最佳男主角提名。2011年，因舞台剧《弗兰肯斯坦》获得奥利弗奖等最佳男主角奖。2013年，成立制作公司SunnyMarch，同年，获英国电影和电视艺术学院大不列颠奖英国年度艺人奖，并成为《时代周刊》国际版10月号封面人物。2014年，凭影片《模仿游戏》获得好莱坞电影奖最佳男主角奖，和奥斯卡金像奖、金球奖、英国电影学院奖等最佳男主角提名，并入选《时代周刊》年度“全球最具影响力人物”榜单，更再度登上该杂志美国版及国际版12月号封面。2015年，被英国女王授予大英帝国司令勋章（CBE），并受邀加入美国电影艺术与科学学院。2016年，开始主演漫威系列电影《奇异博士》。2019年，凭电视剧《梅尔罗斯》获得英国电视学院奖最佳男主角奖。</p>
+        </div>
+
+        <div class="part2">
+            <h1>基本信息</h1>
+            <div class="leftbasicmessage">
+                <ul>
+                    <li><span>中文名</span> 本尼迪克特·蒂莫西·卡尔顿·康伯巴奇 </li> 
+                    <li><span>外文名</span>  Benedict Timothy Carlton Cumberbatch</li>
+                    <li><span>国籍</span>  英国</li> 
+                    <li><span>出生地</span> 英国伦敦</li>  
+                    <li><span>出生日期</span>  1976年7月19日</li> 
+                    <li><span>星座</span>  巨蟹座</li>  
+                    <li><span>身高</span>  184 cm</li>  
+                    <li><span>毕业院校</span>  曼彻斯特大学（学士）<br><span></span> 伦敦音乐与戏剧艺术学院（硕士）</il> 
+                    <li><span>职业</span>  演员、制片人</li>
+                </ul>
+
+            </div>
+            <div class="rightbasicmessage">
+                <ul>
+                    <li><span>经纪公司</span> Conway van Gelder Grant（英国）、UTA（美国） </li> 
+                    <li><span>代表作品</span>  神探夏洛克、梅尔罗斯、奇异博士、模仿游戏</li>
+                    <li><span>主要成就</span>  劳伦斯·奥利弗奖最佳男主角
+                       <br><span></span> 伦敦标准晚报戏剧奖最佳男主角
+                       <br><span></span> 好莱坞电影奖最佳男主角
+                       <br><span></span> 英国电视学院奖最佳男主角
+                       <br><span></span>艾美奖迷你剧/电视电影类最佳男主角</li> 
+                    <li><span>中国香港译名</span> 班尼狄·甘巴贝治</li>  
+                    <li><span>中国台湾译名</span>  班奈狄克·康柏拜区</li> 
+                    <li><span>昵    称</span>  BC、Ben、卷福、缺爷、本尼</li>  
+                    
+                </ul>
+
+            </div>
+        </div>
+        <div class="part3">
+            <div class="a">
+                <h1>早年经历</h1>
+                <div>
+                    <p>本尼迪克特·康伯巴奇在位于西萨塞克斯的布兰伯特学校接受小学教育，之后在伦敦西北部学府哈罗公学完成中学与高中课程。</p>
+                    <p>在哈罗求学时，康伯巴奇开始参与学校的剧场演出。他第一个出演的角色是反串《仲夏夜之梦》的提泰妮娅，其后的演出也以反串女性角色为主。不过在经历变声期后，他改为出演老角，或是《推销员之死》中威利·罗曼那类角色。</p>
+                    <p>高中毕业后，康伯巴奇前往曼彻斯特大学修读戏剧。在升读大学前，康伯巴奇花了半年时间在印度大吉岭的藏区僧院义务教授英语。在这期间。他跟四位朋友到尼泊尔远足，中途迷路，历经磨难，康伯巴奇还因此染上了痢疾。</p>
+                    <p>大学毕业后，康伯巴奇于伦敦音乐与戏剧艺术学院继续深造，取得古典表演专业的硕士学位。</p>
+                </div>
+                <div>
+                    <img src="../img/part3.png" style=" width: 50%; height: 50%; display: block; margin: auto; " >
+                </div>
+            </div>
+            <div class="b">
+                <h1>演艺经历</h1>
+                <div>
+
+                    <div class="b1_pic">
+                        <img src="../img/b1_pic.png">
+                    </div>
+                    <div class="b1">
+                        <p>1999年，康伯巴奇完成了在伦敦音乐戏剧学院的学业，开始自己的演艺之路，但是整整六个月他没接到一个角色，为了维持生活，他不得不在餐馆打工。</p>
+                        <p>2000年，他参演电视剧《心跳》，在剧中饰演Charles。</p>
+                        <p>2001年，康伯巴奇真正意义上的第一部作品——《爱的徒劳》在摄政公园露天剧场上演，他的角色是Ferdinand。同年，他还在这个剧场出演了《仲夏夜之梦》，饰演Demetrius。</p>
+                    </div>
+                    
+                    <div class="b2">
+                        <p>2002年，康伯巴奇参演了电视电影《金色田野》和电视剧《南茜的情史》、《沉默的证人》，饰演的都是配角。还出演了短片《白象似的群山》。同年，他在摄政公园露天剧场共演了三部舞台剧，分别是《皆大欢喜》、《罗密欧与朱丽叶》和《多可爱的战争》。</p>
+                        <p>2003年，康伯巴奇在电视剧方面争取到更多的出镜机会，他不再只是客串那些无关紧要的角色，出演了电视剧《男人四十》、《剑桥风云》和《军情五处》 。另外，他还出演了电影《叛徒与英雄》。</p>
+                        <p>2004年，康伯巴奇凭借电视电影《霍金的故事》中的史蒂芬·霍金一角获得了第44届蒙特卡洛国际电视节最佳男演员奖及英国电视学院奖最佳男主角的提名。此外，他还在电视电影《敦刻尔克大撤退》中饰演Lt. JimmyLangley，并第二次参演剧集《心跳》。同年，康伯巴奇的戏剧舞台从摄政公园露天剧场转到艾尔美达剧场，排演了《海上夫人》，在剧中饰演Lyngstrand。康伯巴奇还开始在BBC电台出现，为广播剧《The Raj Quartet》配音。</p>
+                    </div>
+
+                    <div class="b1_pic">
+                        <img src="../img/b1_pic2.png">
+                    </div>
+                    <div class="b1">
+                        <p>2005年，康伯巴奇远赴南非拍摄迷你剧《直到世界尽头》，饰演Edmund Talbot一角。在该剧的拍摄过程中，他和友人结伴出游，途中却遭遇了绑架事件，经历险难，最终逃过了死亡边际线。同年，康伯巴奇还在剧集《内森·巴利》中饰演Robin，在《突发新闻》中饰演Will Parker。另外，他凭借舞台剧《海达·高布乐》中的Tesman这个角色获得了奥利弗奖最佳男配角提名。</p>
+                        <p>2006年，康伯巴奇在电影《奇异的恩典》中饰演英国首相小威廉·皮特，并且因此获得伦敦影评人协会奖突破表演奖提名。此外，他还在电影《恋爱学分》中饰演Patrick Watts。同年，他在艾尔美达剧场排演了舞台剧《调整期》。</p>  
+                    </div>
+                    
+                    <div class="b2">
+                        <p>2007年，康伯巴奇在短片《不可分割》里一人分饰二角：孪生兄弟Joe和Charlie，并在电影《赎罪》中饰演Paul Marshall。他还在根据真实事件改编的电视电影《斯图尔特：倒带人生》中饰演Alexander [10]  。在舞台剧方面，康伯巴奇在英国皇家宫廷剧院出演了《犀牛》、《纵火犯》。</p>
+                        <P>2008年，康伯巴奇主演了迷你剧《最后的敌人》，并凭借Stephen Ezard一角获得金卫星奖最佳男主角提名。电影方面，他在《另一个波琳家的女孩》中饰演William Carey，和他演对手戏的是斯嘉丽·约翰逊。他还拍摄了《滑稽戏童话》，饰演Henry Clark。同年在英国皇家宫廷剧院的舞台上，康伯巴奇演出了第三部戏剧——《城市》。他还从这年开始参加广播系列剧《座舱压力》的录制，出演的角色是Capt. Martin Crieff。</P>
+                        <p>2009年，他拍摄了电影《第三颗星》，参演的影片《造物弄人》也在这一年上映。同年，出演的电视剧《小岛》使他获得了英国电视学院奖最佳男配角提名，他还在剧集《马普尔小姐探案》第四季中饰演Luke Fitzwilliam。此外，康伯巴奇为BBC纪录片《南太平洋》担任旁白，并开始录制广播系列剧《法庭上的鲁波尔》。</p>
+                        <p>2016年，《神探夏洛克》特辑于1月1日首播，并在全球部分地区上映。5月，康伯巴奇主演的历史系列剧《空王冠：玫瑰战争》播出，他饰演英格兰国王理查三世，因此剧第五次入围英国电视学院奖最佳男主角奖。11月，漫威电影《奇异博士》上映，康伯巴奇在片中出演男主角神经外科医生史蒂芬·斯特兰奇博士，并因此片获得土星奖最佳男主角提名。</p>
+                        <p>2017年，电视系列剧《神探夏洛克第四季》于元旦首播，9月，康伯巴奇主演及监制的电视电影《时间中的孩子》开播，他在片中饰演一位儿童作家Stephen Lewis，该片也是其制片公司SunnyMarch制作的第一部长篇电影</p>
+                    </div>
+
+                    <div class="b1_pic">
+                        <img src="../img/b1_pic3.gif">
+                    </div>
+                    <div class="b1">
+                        <P>2018年，电视剧方面，康伯巴奇担任主演及监制的电视剧《梅尔罗斯》于5月开播，他在剧中饰演因年幼时遭到父亲虐待，成年后患有心理疾病的瘾君子帕特里克·梅尔罗斯，凭借该剧，康伯巴奇获得英国电视学院奖最佳男主角奖，及艾美奖、金球奖最佳男主角提名，剧集也获选《时代周刊》、《名利场》年度十佳剧集，和《时代周刊》21世纪10年代十佳迷你剧集。电影方面，参与演出的漫威电影《复仇者联盟3：无限战争》于4月上映，配音的动画电影《绿毛怪格林奇》年底上映，配音及动作捕捉的《森林之子毛克利》于Netflix在线播出。同年，康伯巴奇还入选《综艺》杂志年度“全球娱乐行业最具影响力商业领袖500人”榜单。</P>
+                        <p>2019年，电视电影《脱欧：无理之战》播出，康伯巴奇中在片中饰演公投官方竞选组织“Vote Leave”的首席总监多米尼克·卡明斯。电影《电力之战》于下半年正式上映，他在片中饰演发明家、企业家爱迪生。</p>
+                        <p>2020年，受到新冠疫情的影响，康伯巴奇只有一部参演的电影上映——奥斯卡获奖影片《1917》。</p>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+            <div class="c">
+                <h1>个人生活</h1>
+                <div>
+                    <div class="c1_pic">
+                        <img src="../img/c1_pic.png">
+                    </div>
+                    <div class="c1">
+                        <p>康伯巴奇的曾祖父亨利·阿诺德·康伯巴奇是英国驻土耳其大使馆的大使。祖父亨利·卡尔顿·康伯巴奇则是英国海军少校，曾作为潜艇指挥官参与第一、二次世界大战。双亲蒂莫西·卡尔顿与万达·泛森皆为演员。康伯巴奇的父母在1976年结婚，并于当年生下他。另外，康伯巴奇还有一个比他年长十多岁、同母异父的姐姐崔西·皮科克。</p>
+                        <p>康伯巴奇的妻子苏菲·亨特生于1978年，毕业于牛津大学，是一名剧场导演兼编剧、演员、歌手。2008年，两人因拍摄电影《滑稽戏童话》初识。2014年春天，开始交往。2014年11月5日，宣布订婚，新人父母按照英国传统在《泰晤士报》刊登订婚启事，对外公布喜讯。2015年2月14日，在英国南部的怀特岛完婚。2015年6月1日，第一个儿子Christopher Carlton Cumberbatch出生。2017年3月3日，第二个儿子Hal Auden Cumberbatch出生。2018年9月，苏菲·亨特确认已怀第三胎。</p>
+                    </div>                    
+                </div>
+            </div>
+
+
+            <div class="d">
+                <h1>主要作品</h1>
+                <div class="movie">
+                    <h3>参演电影</h3>
+                    <div class="movie_left">
+                        <div class="pic_left">
+                            <img src="../img/movie_pic1.png">
+                        </div>
+                        <div class="movie_des">
+                            <b>奇异博士2 </b> <span>2022</span>
+                            <p><span>饰演 </span> 奇异博士</p>
+                            <p><span>导演 </span> 山姆·雷米</p>
+                            <p><span>主演 </span> 伊丽莎白·奥尔森</p>
+                        </div>
+                    </div>
+
+                    <div class="movie_left">
+                        <div class="pic_left">
+                            <img src="../img/movie_pic2.png">
+                        </div>
+                        <div class="movie_des">
+                            <b>信使 </b> <span>2021-3-19</span>
+                            <p><span>饰演 </span> Greville Wynne</p>
+                            <p><span>导演 </span> 多米尼克·库克</p>
+                            <p><span>主演 </span> 梅拉布·尼尼泽</p>
+                        </div>
+                    </div>
+
+                    <div class="movie_left">
+                        <div class="pic_left">
+                            <img src="../img/movie_pic3.png">
+                        </div>
+                        <div class="movie_des">
+                            <b>760号犯人 </b> <span>2021-2-12</span>
+                            <p><span>饰演 </span> Stu Couch</p>
+                            <p><span>导演 </span> 凯文·麦克唐纳</p>
+                            <p><span>主演 </span> 朱迪·福斯特</p>
+                        </div>
+
+                    </div>
+
+                    <div class="movie_left">
+                        <div class="pic_left">
+                            <img src="../img/movie_pic4.png">
+                        </div>
+                        <div class="movie_des">
+                            <b>1917 </b> <span>2020-01-02</span>
+                            <p><span>饰演 </span> Colonel MacKenzie</p>
+                            <p><span>导演 </span> 萨姆·门德斯</p>
+                            <p><span>主演 </span> 乔治·麦凯</p>
+                        </div>
+
+                    </div>
+                </div>
+                
+
+                <br><br>
+                <hr>
+                <br>
+
+                <div class="tv" >
+                    <h3>参演电视剧</h3>
+                    <div class="tv_left">
+                        <div class="pic_left">
+                            <img src="../img/tv_pic1.png">
+                        </div>
+                        <div class="tv_des">
+                            <b>梅尔罗斯 </b> <span>2018</span>
+                            <p><span>饰演 </span> Patrick Melrose</p>
+                            <p><span>导演 </span> 爱德华·贝尔格</p>
+                            <p><span>主演 </span> 詹妮弗·杰森·李</p>
+                        </div>
+                    </div>
+
+                    <div class="tv_left">
+                        <div class="pic_left">
+                            <img src="../img/tv_pic2.png">
+                        </div>
+                        <div class="tv_des">
+                            <b>时间中的孩子 </b> <span>2017</span>
+                            <p><span>饰演 </span> Stephen Lewis</p>
+                            <p><span>导演 </span> Julian Farino</p>
+                            <p><span>主演 </span> 凯莉·麦克唐纳</p>
+                        </div>
+                    </div>
+
+                    <div class="tv_left">
+                        <div class="pic_left">
+                            <img src="../img/tv_pic3.png">
+                        </div>
+                        <div class="tv_des">
+                            <b>好兆头 </b> <span>2019</span>
+                            <p><span>饰演 </span> 撒旦（配音）</p>
+                            <p><span>导演 </span> 道格拉斯·麦金农</p>
+                            <p><span>主演 </span> 麦克·辛</p>
+                        </div>
+                    </div>
+
+                    <div class="tv_left">
+                        <div class="pic_left">
+                            <img src="../img/tv_pic4.png">
+                        </div>
+                        <div class="tv_des">
+                            <b>神探夏洛克第四季 </b> <span>2017</span>
+                            <p><span>饰演 </span> 夏洛克·福尔摩斯</p>
+                            <p><span>导演 </span> 瑞秋·塔拉蕾</p>
+                            <p><span>主演 </span> 马丁·弗瑞曼</p>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <br><br>
+                <hr>
+                <br>
+                
+
+                
+                <div class="works">
+                    <h3>制作作品</h3>
+                    <table>
+                        <tr>
+                            <th>时间</th>
+                            <th>作品名称</th>
+                            <th>类型</th>
+                            <th>职务</th>
+                        </tr>
+                        <tr>
+                            <td>2013</td><td>举手之劳</td><td>短片</td><td>监制/制片人</td>
+                        </tr>
+                        <tr>
+                            <td>2017</td><td>时间中的孩子</td><td>电视电影</td><td>监制</td>
+                        </tr>
+                        <tr>
+                            <td>2018</td><td>梅尔罗斯</td><td>限定剧</td><td>监制</td>
+                        </tr>
+                        <tr>
+                            <td>2019</td><td>电力之战</td><td>电影</td><td>监制</td>
+                        </tr>
+                        <tr>
+                            <td>2021</td><td>信使</td><td>电影</td><td>监制</td>
+                        </tr>
+                        <tr>
+                            <td>2021</td><td>毛里塔尼亚人</td><td>电影</td><td>制片人</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <br><br>
+                <hr>
+                <br>
+
+                <div class="theatre">
+                    <h3>参演舞台剧</h3>
+                    <table>
+                        <tr>
+                            <th>时间</th>
+                            <th>剧名</th>
+                            <th>角色</th>
+                            <th>备注</th>
+                        </tr>
+                        <tr>
+                            <td>2001</td><td>爱的徒劳</td><td>Ferdinand</td><td>摄政公园露天剧场</td>
+                        </tr>
+                        <tr>
+                            <td>2001</td><td>仲夏夜之梦</td><td>Demetrius</td><td>摄政公园露天剧场</td>
+                        </tr>
+                        <tr>
+                            <td>2002</td><td>皆大欢喜</td><td>Orlando</td><td>摄政公园露天剧场</td>
+                        </tr>
+                        <tr>
+                            <td>2002</td><td>罗密欧与朱丽叶</td><td>Benvolio</td><td>摄政公园露天剧场</td>
+                        </tr>
+                        <tr>
+                            <td>2002</td><td>多可爱的战争</td><td>----</td><td>摄政公园露天剧场</td>
+                        </tr>
+                        <tr>
+                            <td>2004</td><td>海上夫人</td><td>Lyngstrand</td><td>摄政公园露天剧场</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <br><br>
+                <hr>
+                <br>
+
+                <div class="drama">
+                    <h3>参演广播剧</h3>
+                    <table>
+                        <tr>
+                            <th>时间</th>
+                            <th>剧名</th>
+                            <th>角色</th>
+                            <th>备注</th>
+                        </tr>
+                        <tr>
+                            <td>2003</td><td>曼斯菲尔德庄园</td><td>Edmund Bertram</td><td>BBC4号电台广播剧</td>
+                        </tr>
+                        <tr>
+                            <td>2004</td><td>The Raj Quartet</td><td>Nigel Rowan</td><td>BBC4号电台广播剧</td>
+                        </tr>
+                        <tr>
+                            <td>2004</td><td>The Far Side of the World</td><td>旁白</td><td>BBC4号电台</td>
+                        </tr>
+                        <tr>
+                            <td>2004</td><td>The Surgeon's Mate</td><td>旁白</td><td>BBC4号电台</td>
+                        </tr>
+                        <tr>
+                            <td>2004</td><td>诺里斯先生换火车</td><td>旁白</td><td>BBC4号电台</td>
+                        </tr>
+                        <tr>
+                            <td>2004</td><td>开普勒</td><td>约翰尼斯·开普勒</td><td>BBC4号电台</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <br><br>
+                <hr>
+                <br>
+
+                <div class="variety">
+                    <h3>综艺节目</h3>
+                    <table>
+                        <tr>
+                            <th>播出时间</th>
+                            <th>节目名称</th>
+                            <th>简介</th>
+                        </tr>
+                        <tr>
+                            <td>2018-02-27</td><td>劳伦斯世界体育奖颁奖典礼（摩纳哥）</td><td>主持</td>
+                        </tr>
+                        <tr>
+                            <td>2015-04-15</td><td>劳伦斯世界体育奖颁奖典礼（上海）</td><td>主持</td>
+                        </tr>
+                        <tr>
+                            <td>2014-05-25</td><td>F1摩纳哥大奖赛颁奖仪式</td><td>主持</td>
+                        </tr>
+                        <tr>
+                            <td>2014-03-29</td><td>F1马来西亚大奖赛颁奖仪式</td><td>主持</td>
+                        </tr>
+                        <tr>
+                            <td>2014-03-26</td><td>劳伦斯世界体育奖颁奖典礼（吉隆坡）</td><td>主持</td>
+                        </tr>
+                        <tr>
+                            <td>2010-10-14</td><td>新闻问答第四十季</td><td>嘉宾主持</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <br><br>
+                <hr>
+                <br>
+
+                <div class="magazine">
+                    <h3>杂志写真</h3>
+                    <div class="mag_left">
+                        <div class="pic_left">
+                            <img src="../img/mag_pic1.png">
+                        </div>
+                        <div class="mag_des">
+                            <b>Variety </b>
+                            <p><span>2018年06月刊 </span></p>
+                            <p><span>封面 </span></p>
+                        </div>
+                    </div>
+
+                    <div class="mag_left">
+                        <div class="pic_left">
+                            <img src="../img/mag_pic2.png">
+                        </div>
+                        <div class="mag_des">
+                            <b>Interview </b>
+                            <p><span>2017年11月刊 </span></p>
+                            <p><span>封面 </span></p>
+                        </div>
+                    </div>
+
+                    <div class="mag_left">
+                        <div class="pic_left">
+                            <img src="../img/mag_pic3.png">
+                        </div>
+                        <div class="mag_des">
+                            <b>The Rake </b>
+                            <p><span>2017年04月刊 国际版 </span></p>
+                            <p><span>封面 </span></p>
+                        </div>
+                    </div>
+
+                    <div class="mag_left">
+                        <div class="pic_left">
+                            <img src="../img/mag_pic4.png">
+                        </div>
+                        <div class="mag_des">
+                            <b>The Rake </b>
+                            <p><span>2017年04月刊 国际版 </span></p>
+                            <p><span>封面 </span></p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <br><br>
+                <hr>
+                <br>
+
+            </div>
+
+            <div class="e">
+                <h1>社会活动</h1>
+                <div class="charity">
+                    <h3>慈善</h3>
+                    <p>康伯巴奇是英国慈善组织“王子信托基金”、皇家马斯登癌症慈善会的大使，也是Odd Arts、Anno's Africa和Dramatic Need的支持者和赞助人，还多次向慈善组织和资金筹集机构捐赠善款、艺术品和衣物。2008年，他成为运动神经元疾病协会的大使，2014年，参与该组织发起的“冰桶挑战”，2015年，成为赞助人。2010、2015年，康伯巴奇两次参与慈善义演《孩子们的独白》，为南非贫困儿童筹款。2015年8月至11月，康伯巴奇在结束舞台剧《哈姆雷特》的每场表演后，呼吁在场观众为慈善机构捐款以帮助叙利亚难民，共募集15万英镑的善款。</p>
+                    <br>
+                </div>
+
+                <div class="pb">
+                    <h3>公益</h3>
+                    <p>康伯巴奇是“Save Soho”运动的发起人之一，该运动旨在“保护和扶持Soho地区标志性音乐和表演艺术场所”。2010年，参加了英国工会在威斯敏斯特发起的反对国会削减艺术支出的抗议活动。2014年3月19日，康伯巴奇和菲利普亲王在圣詹姆斯宫为85位年轻人颁发了爱丁堡公爵奖。</p>
+                    <br>
+                </div>
+
+                <div class="sports">
+                    <h3>体育</h3>
+                    <p>2012年，康伯巴奇为伦敦奥运会拍摄了一辑奥运宣传短片，该短片于奥运开幕礼前播出。2014年，康伯巴奇先后出席了F1马来西亚大奖赛及摩纳哥大奖赛，并两次于颁奖礼上出任主持访问获奖车手。2014、2015、2018年，康伯巴奇三度受邀为劳伦斯世界体育奖颁奖典礼担任主持。</p>
+                    <br>
+                </div>
+
+                <div class="honor">
+                    <h3>荣誉</h3>
+                    <p>2013年，康伯巴奇应邀担任剑桥大学科学节的客席指导。2014年10月，康伯巴奇的第一尊蜡像入驻伦敦杜莎夫人蜡像馆，2015至2016年，另外三尊分别入驻北京、重庆、香港杜莎夫人蜡像馆。2015年11月10日，在白金汉宫被英国女王伊丽莎白二世授予大英帝国司令勋章（CBE），以表彰他在演艺事业和慈善领域的贡献。2016年2月，康伯巴奇受邀成为牛津大学玛格丽特夫人学院的访问学者，为期3年。2017年，康伯巴奇开始担任伦敦音乐与戏剧艺术学院荣誉校长，这是他硕士毕业的戏剧学院。</p>
+                    <br>
+                </div>
+
+            </div>
+
+            <div class="f">
+                <h1>获奖记录</h1>
+                <p style="border-top:4px solid gray;text-align:  center;padding: 12px; background-color: rgb(216, 216, 216);">综合类</p>
+                <ul>
+                    <li> 2018    南岸天空艺术奖 杰出成就奖    （获奖）</li>
+                    <li> 2015    大英帝国司令勋章（CBE）    （获奖）    </li>
+                    <li> 2014    第17届英国《GQ》年度风云人物 年度演员奖    （获奖） </li>
+                    <li> 2013    第22届英国电影和电视艺术学院大不列颠奖 英国年度艺人奖    （获奖）    </li>
+                    <li> 2011    第14届英国《GQ》年度风云人物 年度演员奖    （获奖）  </li>
+                </ul>
+                <p style="text-align:  center;padding: 12px; background-color: rgb(216, 216, 216);">电影类</p>
+                <ul>
+                    <li> 2017    第43届土星奖 最佳男主角    奇异博士    （提名）    </li>
+                    <li> 2015    第87届奥斯卡金像奖 最佳男主角    模仿游戏    （提名）</li>
+                    <li> 2015    第68届英国电影学院奖 最佳男主角    模仿游戏    （提名） </li>
+                    <li> 2015    第72届金球奖 剧情类 最佳男主角    模仿游戏    （提名） </li>
+                    <li> 2015    第72届金球奖 剧情类 最佳男主角    模仿游戏    （提名） </li>
+                    <li> 2014    第23届MTV电影大奖 最受欢迎角色    星际迷航：暗黑无界    （提名）  </li>
+                    <li> 2014    第18届好莱坞电影奖 最佳男主角    模仿游戏    （获奖）</li>
+                    <li> 2014    第13届犹他州影评人协会奖 最佳男主角第二名    模仿游戏    （获奖）   </li>
+                    <li> 2014    第19届美国评论家选择奖 年度最热门电影明星    （获奖）  </li>
+                    <li> 2014    第26届棕榈泉国际电影节 最佳群戏    模仿游戏    （获奖） </li>
+                </ul>
+
+                <p style="text-align:  center;padding: 12px; background-color: rgb(216, 216, 216);">电视剧类</p>
+                <ul>
+                    <li> 2019    第76届金球奖 限定剧/电视电影类 最佳男主角    梅尔罗斯    （提名）    </li>
+                    <li> 2019    第65届英国电视学院奖 最佳男主角    梅尔罗斯    （获奖）</li>
+                    <li> 2018    第70届艾美奖 限定剧/电视电影类 最佳男主角    梅尔罗斯    （提名） </li>
+                    <li> 2018    第70届艾美奖 最佳限定剧    梅尔罗斯    （提名） </li>
+                    <li> 2017    第63届英国电视学院奖 最佳男主角    空王冠：玫瑰战争    （提名） </li>
+                    <li> 2017    第69届艾美奖 限定剧/电视电影类 最佳男主角    神探夏洛克第四季    （提名）  </li>
+                    <li> 2016    第68届艾美奖 限定剧/电视电影类 最佳男主角    神探夏洛克：可恶的新娘    （提名）  </li>
+                    <li> 2015    第61届英国电视学院奖 最佳男主角    神探夏洛克第三季    （提名）       </li>
+                    <li> 2014    第66届艾美奖 迷你剧/电视电影类 最佳男主角    神探夏洛克第三季    （获奖）</li>
+                    <li> 2014    第19届英国国家电视奖 最佳电视侦探    神探夏洛克    （获奖）</li>
+                </ul>
+
+                <p style="text-align:  center;padding: 12px; background-color: rgb(216, 216, 216);">舞台剧类</p>
+                <ul>
+                    <li> 2016    第09届福斯塔夫奖 最佳男主角    哈姆雷特    （获奖）    </li>
+                    <li> 2016    第16届WhatsOnStage奖 最佳男主角    哈姆雷特    （获奖）</li>
+                    <li> 2016    第40届奥利弗奖 最佳男主角    哈姆雷特    （提名） </li>
+                    <li> 2015    第06届百老汇世界：英国大奖 最佳男主角    哈姆雷特    （获奖） </li>
+                    <li> 2012    第36届奥利弗奖 最佳男主角    弗兰肯斯坦    （获奖）</li>
+                    <li> 2012    第28届英国戏剧评论圈奖 最佳男主角    弗兰肯斯坦    （获奖） </li>
+                    <li> 2011    第57届伦敦标准晚报戏剧奖 最佳男主角    弗兰肯斯坦    （获奖）  </li>
+                    <li> 2005    第29届奥利弗奖 最佳男配角    海达·高布乐    （提名）     </li>
+                    <li> 2005    第16届伊恩·查理森奖 最佳表演奖第三名    海达·高布乐    （获奖）</li>
+                </ul>
+            </div>
+
+            <div class="g">
+                <h1>人物评价</h1>
+                <div class="g_pic"><img src="../img/pic_g.png"></div>
+                <p>本尼迪克特·康伯巴奇不是传统意义上的“漂亮男孩”。他唇线明显，鼻子有点朝天，颧骨高耸，眼珠的颜色介于蓝色和绿色之间，头发浓密，有着低沉且富有磁性的嗓音（时光网评）。他把众多特质融于一身：脆弱、危险、诚实、勇气、活力，让人无法忽视（科林·费尔斯评）。他是荧幕上的最佳福尔摩斯（史蒂文·斯皮尔伯格评）。他在片场的时候，其他人都不自觉地更加打起精神来。他把《星际迷航：暗黑无界》这个反派演得很有说服力（J·J·艾布拉姆斯评）。康伯巴奇在舞台上的表演是一种灵与肉结合的表述，他是世界上最好的演员之一（丹尼·鲍尔评）。</p>
+            </div>
+
+        </div>
+       
+
+
+
+
+    </div>
+
+    <div id="right">
+        <div class="part4">
+            <h1>个人照片</h1>
+            <div>
+                <img src="../img/pic.png" style=" width: 100%; ">
+            </div>
+        </div>
+
+        <div class="part5">
+            <h2>粉丝</h2>
+            <div>
+                <p style="text-indent: 0em;">粉丝总数：3.8万</p>
+                <p style="text-indent: 0em;">红黑粉比例</p>
+                红粉：<progress value="100" max="100" style="border: 2px solid rgb(99, 99, 99);"></progress> 
+                <p style="text-indent: 0em;">粉丝互动量</p>
+                <img src="../img/fensi.png" style="width: 100%; height: auto;">
+            </div>
+
+        </div>
+
+    </div>
+
+   </div>
+
+   <div class="foot">
+        <div>
+            <b>搜索发现</b>
+                <div class="footul">
+                    <ul class="leftli">
+                        <li>本尼迪克特·康伯巴奇</li>
+                        <li>妻子苏菲·亨特</li>
+                    </ul>
+                    <ul class="rightli">
+                        <li>好友汤姆·希德勒斯顿</li>
+                        <li>好友詹姆斯·麦卡沃伊</li>
+                    </ul>
+                </div>
+        </div>
+   </div>
+
+   <script>
+       //获取tab栏列表
+       var head_li = document.querySelectorAll('.nav li');
+       //console.log(head_li);
+       //数组存放下面内容的类名，方便后续与Tab栏内容关联
+       var arr = ['a','b','c','d','e','f','g'];
+
+       for(var i = 0;i<head_li.length;i++)
+            {
+                //给每个li设置自定义属性index，便于与arr关联
+                head_li[i].setAttribute("index",i);
+                //绑定点击事件
+                head_li[i].onclick = function()
+                {
+                    //排他思想。先将所有li的孩子a的类名设置为空，再单独设置被点击的类名，以改变被点击tab的样式
+                    for(var j=0;j<head_li.length;j++)
+                    {
+                        head_li[j].children[0].className="";
+                        head_li[j].children[0].style.color = "white";
+                    }
+                    this.children[0].className = "active";
+                    this.children[0].style.color = 'black';
+
+                    //排他思想，先将所有栏目内容的display属性设置为none不可见，再单独设置点击栏目对应的内容为可见
+                    for(var k = 0;k<head_li.length;k++)
+                    {
+                        var index = head_li[k].getAttribute('index');
+                        var aa=document.getElementsByClassName(arr[index])[0];
+                        aa.style.display = "none";
+                    }
+                    var index = this.getAttribute('index');
+                    var aa=document.getElementsByClassName(arr[index])[0];
+                    aa.style.display = "block";
+                }
+            }
+        
+    </script>
+
+
+</body>
+</html>
